@@ -12,7 +12,6 @@ import org.bukkit.OfflinePlayer;
 import org.bukkit.entity.Player;
 import org.bukkit.plugin.messaging.PluginMessageListener;
 import org.jetbrains.annotations.NotNull;
-import org.jspecify.annotations.NonNull;
 
 import java.io.ByteArrayInputStream;
 import java.io.DataInputStream;
@@ -124,7 +123,7 @@ public final class ProxyExpansion extends PlaceholderExpansion implements Plugin
     }
 
     @Override
-    public void onPluginMessageReceived(final @NonNull String channel, final @NonNull Player player, final byte @NonNull [] message) {
+    public void onPluginMessageReceived(final @NotNull String channel, final @NotNull Player player, final byte @NotNull [] message) {
         if (!MESSAGE_CHANNEL.equals(channel)) {
             return;
         }
