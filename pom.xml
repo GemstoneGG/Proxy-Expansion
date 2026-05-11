@@ -4,12 +4,12 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>com.extendedclip.papi.proxyexpansion</groupId>
-    <artifactId>proxy-expansion</artifactId>
-    <version>1.0</version>
+    <groupId>com.extendedclip.papi.bungeeexpansion</groupId>
+    <artifactId>bungee-expansion</artifactId>
+    <version>3.0</version>
 
-    <name>Expansion-Proxy</name>
-    <description>PlaceholderAPI expansion for proxy placeholders.</description>
+    <name>Expansion-Bungee</name>
+    <description>PlaceholderAPI expansion for BungeeCord placeholders.</description>
 
     <properties>
         <maven.compiler.source>25</maven.compiler.source>
@@ -24,8 +24,8 @@
 
     <repositories>
         <repository>
-            <id>papermc</id>
-            <url>https://repo.papermc.io/repository/maven-public/</url>
+            <id>spigot-repo</id>
+            <url>https://hub.spigotmc.org/nexus/content/repositories/snapshots/</url>
         </repository>
 
         <repository>
@@ -36,8 +36,8 @@
 
     <dependencies>
         <dependency>
-            <groupId>io.papermc.paper</groupId>
-            <artifactId>paper-api</artifactId>
+            <groupId>org.spigotmc</groupId>
+            <artifactId>spigot-api</artifactId>
             <version>[26.1.2.build,)</version>
             <scope>provided</scope>
         </dependency>

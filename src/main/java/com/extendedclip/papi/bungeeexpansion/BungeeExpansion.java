@@ -1,4 +1,4 @@
-package com.extendedclip.papi.proxyexpansion;
+package com.extendedclip.papi.bungeeexpansion;
 
 import com.google.common.base.Splitter;
 import com.google.common.collect.Iterables;
@@ -11,7 +11,7 @@ import org.bukkit.Bukkit;
 import org.bukkit.OfflinePlayer;
 import org.bukkit.entity.Player;
 import org.bukkit.plugin.messaging.PluginMessageListener;
-import org.jetbrains.annotations.NotNull;
+import org.jspecify.annotations.NonNull;
 
 import java.io.ByteArrayInputStream;
 import java.io.DataInputStream;
@@ -27,8 +27,7 @@ import java.util.concurrent.atomic.AtomicReference;
 import java.util.function.Consumer;
 import java.util.logging.Level;
 
-@SuppressWarnings("unused")
-public final class ProxyExpansion extends PlaceholderExpansion implements PluginMessageListener, Taskable, Configurable {
+public final class BungeeExpansion extends PlaceholderExpansion implements PluginMessageListener, Taskable, Configurable {
 
     private static final String MESSAGE_CHANNEL = "BungeeCord";
     private static final String SERVERS_CHANNEL = "GetServers";
@@ -43,21 +42,21 @@ public final class ProxyExpansion extends PlaceholderExpansion implements Plugin
     private ScheduledExecutorService executor;
 
     @Override
-    @NotNull
+    @NonNull
     public String getIdentifier() {
-        return "proxy";
+        return "bungee";
     }
 
     @Override
-    @NotNull
+    @NonNull
     public String getAuthor() {
         return "clip";
     }
 
     @Override
-    @NotNull
+    @NonNull
     public String getVersion() {
-        return "1.0";
+        return "3.0";
     }
 
     @Override
@@ -79,7 +78,7 @@ public final class ProxyExpansion extends PlaceholderExpansion implements Plugin
     public void start() {
         if (executor == null) {
             executor = Executors.newSingleThreadScheduledExecutor(r -> {
-                final Thread thread = new Thread(r, "ProxyExpansion-Scheduler");
+                final Thread thread = new Thread(r, "BungeeExpansion-Scheduler");
                 thread.setDaemon(true);
                 return thread;
             });
@@ -123,7 +122,7 @@ public final class ProxyExpansion extends PlaceholderExpansion implements Plugin
     }
 
     @Override
-    public void onPluginMessageReceived(final @NotNull String channel, final @NotNull Player player, final byte @NotNull [] message) {
+    public void onPluginMessageReceived(final @NonNull String channel, final @NonNull Player player, final byte @NonNull [] message) {
         if (!MESSAGE_CHANNEL.equals(channel)) {
             return;
         }
